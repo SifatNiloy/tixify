@@ -1,14 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
-const Navbar = () => {
-  const { user, logout } = useContext(AuthContext);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
+const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate= useNavigate();
   const handleLogout = () => {
-    logout();
+    logOut();
+    console.log("User logged out");
+    navigate("/");
   };
+  
 
   const toggleDropdown = () => {
     setDropdownOpen((prevState) => !prevState);
@@ -74,7 +78,8 @@ const Navbar = () => {
                   <li>
                     <Link
                       to="/userProfile"
-                      className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200"
+                      className="block px-4 py-2 text-lg text-gray-800 hover:bg-indigo-500 hover:text-white
+                      font-bold"
                     >
                       Edit Profile
                     </Link>
@@ -82,7 +87,8 @@ const Navbar = () => {
                   <li>
                     <button
                       onClick={handleLogout}
-                      className="block w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-gray-200"
+                      className="block w-full px-4 py-2 text-left text-lg text-red-600 hover:bg-indigo-500 hover:text-white
+                      font-bold"
                     >
                       Logout
                     </button>
