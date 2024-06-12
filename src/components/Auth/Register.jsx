@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from "react-simple-captcha";
 import Swal from "sweetalert2";
@@ -38,7 +38,7 @@ const Register = () => {
     const password = form.password.value;
 
     try {
-      // Implement registration logic here (e.g., call backend API)
+      // Implementing registration logic here (e.g., call backend API)
       // await register(email, password);
       // Show success message
       Swal.fire({

@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
       //get and set token
       if (currentUser) {
         axios
-          .post("https://click2buy-backend.sifatniloy.top/jwt", {
+          .post("https://backend-url/jwt", {
             email: currentUser.email,
           })
           .then((data) => {
