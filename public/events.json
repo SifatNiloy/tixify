@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "Music Concert",
+    "date": "2024-06-30",
+    "location": "New York City, NY",
+    "price": "Free",
+    "description": "Join us for a night of great music and fun.",
+    "image": "/images/music-concert.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Art Exhibition",
+    "date": "2024-07-10",
+    "location": "San Francisco, CA",
+    "price": "$20",
+    "description": "Explore stunning artworks from talented artists.",
+    "image": "/images/art-exhibition.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Tech Conference",
+    "date": "2024-08-15",
+    "location": "Los Angeles, CA",
+    "price": "$100",
+    "description": "Stay ahead with the latest in technology and innovation.",
+    "image": "/images/tech-conference.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Food Festival",
+    "date": "2024-09-20",
+    "location": "Chicago, IL",
+    "price": "Free",
+    "description": "Taste delicious dishes from around the world.",
+    "image": "/images/food-festival.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Theater Play",
+    "date": "2024-10-05",
+    "location": "Boston, MA",
+    "price": "$50",
+    "description": "Enjoy a captivating play performed by talented actors.",
+    "image": "/images/theater-play.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Science Fair",
+    "date": "2024-11-12",
+    "location": "Houston, TX",
+    "price": "Free",
+    "description": "Discover amazing scientific projects and experiments.",
+    "image": "/images/science-fair.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Film Screening",
+    "date": "2024-12-01",
+    "location": "Seattle, WA",
+    "price": "$15",
+    "description": "Watch an exclusive screening of an independent film.",
+    "image": "/images/film-screening.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Marathon",
+    "date": "2024-04-25",
+    "location": "Miami, FL",
+    "price": "Free",
+    "description": "Participate in or watch an exciting marathon event.",
+    "image": "/images/marathon.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Comedy Show",
+    "date": "2024-03-18",
+    "location": "Denver, CO",
+    "price": "$30",
+    "description": "Laugh out loud with top comedians performing live.",
+    "image": "/images/comedy-show.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Book Fair",
+    "date": "2024-05-22",
+    "location": "Portland, OR",
+    "price": "Free",
+    "description": "Browse and buy books from various genres and authors.",
+    "image": "/images/book-fair.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Yoga Retreat",
+    "date": "2024-07-14",
+    "location": "Sedona, AZ",
+    "price": "$150",
+    "description": "Relax and rejuvenate with a peaceful yoga retreat.",
+    "image": "/images/yoga-retreat.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Fashion Show",
+    "date": "2024-08-29",
+    "location": "Las Vegas, NV",
+    "price": "$75",
+    "description": "Witness the latest trends at a high-end fashion show.",
+    "image": "/images/fashion-show.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Dance Workshop",
+    "date": "2024-09-11",
+    "location": "Atlanta, GA",
+    "price": "$40",
+    "description": "Learn new dance moves from professional instructors.",
+    "image": "/images/dance-workshop.jpg"
+  },
+  {
+    "id": 14,
+    "title": "Photography Exhibition",
+    "date": "2024-10-25",
+    "location": "Philadelphia, PA",
+    "price": "$25",
+    "description": "Admire breathtaking photos from skilled photographers.",
+    "image": "/images/photography-exhibition.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Cultural Festival",
+    "date": "2024-11-19",
+    "location": "Washington, DC",
+    "price": "Free",
+    "description": "Celebrate diverse cultures with music, dance, and food.",
+    "image": "/images/cultural-festival.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Craft Fair",
+    "date": "2024-12-05",
+    "location": "Nashville, TN",
+    "price": "$10",
+    "description": "Discover unique crafts and handmade items.",
+    "image": "/images/craft-fair.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Charity Gala",
+    "date": "2024-06-15",
+    "location": "Dallas, TX",
+    "price": "$200",
+    "description": "Support a good cause at a glamorous charity gala.",
+    "image": "/images/charity-gala.jpg"
+  },
+  {
+    "id": 18,
+    "title": "Cooking Class",
+    "date": "2024-07-22",
+    "location": "San Diego, CA",
+    "price": "$60",
+    "description": "Learn to cook delicious dishes from expert chefs.",
+    "image": "/images/cooking-class.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Sports Game",
+    "date": "2024-08-05",
+    "location": "Phoenix, AZ",
+    "price": "$50",
+    "description": "Cheer for your favorite team at an exciting game.",
+    "image": "/images/sports-game.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Technology Expo",
+    "date": "2024-09-18",
+    "location": "Silicon Valley, CA",
+    "price": "$80",
+    "description": "Explore the latest tech innovations and gadgets.",
+    "image": "/images/technology-expo.jpg"
+  }
+]
