@@ -25,36 +25,36 @@ const Navbar = () => {
           Ticket Booking App
         </Link>
         <div className="flex items-center">
-          <Link
+          {/* <Link
             to="/dashboard"
             className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
           >
             Dashboard
-          </Link>
+          </Link> */}
           <Link
             to="/"
             className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
           >
             Home
           </Link>
-          <Link
+          {/* <Link
             to="/event"
             className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
           >
             Event Details
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to="/booking"
             className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
           >
             Book Tickets
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to="/payment"
             className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
           >
             Payment
-          </Link>
+          </Link> */}
 
           {user ? (
             <div className="relative ml-4">

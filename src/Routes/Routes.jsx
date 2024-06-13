@@ -23,12 +23,16 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/event",
-        element: <EventDetailsPage/>,
+        path: "/events/:eventId", // Dynamic route for event details
+        element: <EventDetailsPage />,
       },
       {
         path: "/booking",
         element: <BookingPage/>,
+      },
+      {
+        path: '/booking/:eventId', // Dynamic route for booking
+        element: <BookingPage />,
       },
       {
         path: "/payment",

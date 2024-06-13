@@ -6,7 +6,7 @@
     "location": "New York City, NY",
     "price": "Free",
     "description": "Join us for a night of great music and fun.",
-    "image": "/images/music-concert.jpg"
+    "image": "https://i.ibb.co/Sx3VH2y/1-music-concert.jpg"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "location": "San Francisco, CA",
     "price": "$20",
     "description": "Explore stunning artworks from talented artists.",
-    "image": "/images/art-exhibition.jpg"
+    "image": "https://i.ibb.co/WFHZGWx/2-art-exhibition.jpg"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "location": "Los Angeles, CA",
     "price": "$100",
     "description": "Stay ahead with the latest in technology and innovation.",
-    "image": "/images/tech-conference.jpg"
+    "image": "https://i.ibb.co/GCN40mb/3-tech-conference.jpg"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "location": "Chicago, IL",
     "price": "Free",
     "description": "Taste delicious dishes from around the world.",
-    "image": "/images/food-festival.jpg"
+    "image": "https://i.ibb.co/cvcbYfs/4-food-festival.jpg"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "location": "Boston, MA",
     "price": "$50",
     "description": "Enjoy a captivating play performed by talented actors.",
-    "image": "/images/theater-play.jpg"
+    "image": "https://i.ibb.co/jfDJ9gY/5-theater-play.jpg"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "location": "Houston, TX",
     "price": "Free",
     "description": "Discover amazing scientific projects and experiments.",
-    "image": "/images/science-fair.jpg"
+    "image": "https://i.ibb.co/gycbNMh/6-science-fair.jpg"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "location": "Seattle, WA",
     "price": "$15",
     "description": "Watch an exclusive screening of an independent film.",
-    "image": "/images/film-screening.jpg"
+    "image": "https://i.ibb.co/FxBnx9m/7-film-screening.jpg"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "location": "Miami, FL",
     "price": "Free",
     "description": "Participate in or watch an exciting marathon event.",
-    "image": "/images/marathon.jpg"
+    "image": "https://i.ibb.co/dt3jXSK/8-marathon.jpg"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "location": "Denver, CO",
     "price": "$30",
     "description": "Laugh out loud with top comedians performing live.",
-    "image": "/images/comedy-show.jpg"
+    "image": "https://i.ibb.co/6vTPxCk/9-comedy-show.jpg"
   },
   {
     "id": 10,
@@ -87,96 +87,51 @@
     "location": "Portland, OR",
     "price": "Free",
     "description": "Browse and buy books from various genres and authors.",
-    "image": "/images/book-fair.jpg"
+    "image": "https://i.ibb.co/GTfNCYD/10-book-fair.jpg"
   },
   {
     "id": 11,
-    "title": "Yoga Retreat",
-    "date": "2024-07-14",
-    "location": "Sedona, AZ",
-    "price": "$150",
-    "description": "Relax and rejuvenate with a peaceful yoga retreat.",
-    "image": "/images/yoga-retreat.jpg"
-  },
-  {
-    "id": 12,
-    "title": "Fashion Show",
-    "date": "2024-08-29",
-    "location": "Las Vegas, NV",
-    "price": "$75",
-    "description": "Witness the latest trends at a high-end fashion show.",
-    "image": "/images/fashion-show.jpg"
-  },
-  {
-    "id": 13,
-    "title": "Dance Workshop",
-    "date": "2024-09-11",
-    "location": "Atlanta, GA",
-    "price": "$40",
-    "description": "Learn new dance moves from professional instructors.",
-    "image": "/images/dance-workshop.jpg"
-  },
-  {
-    "id": 14,
     "title": "Photography Exhibition",
     "date": "2024-10-25",
     "location": "Philadelphia, PA",
     "price": "$25",
     "description": "Admire breathtaking photos from skilled photographers.",
-    "image": "/images/photography-exhibition.jpg"
+    "image": "https://i.ibb.co/vVz7m2s/11-photography-exhibition.jpg"
   },
   {
-    "id": 15,
+    "id": 12,
     "title": "Cultural Festival",
     "date": "2024-11-19",
     "location": "Washington, DC",
     "price": "Free",
     "description": "Celebrate diverse cultures with music, dance, and food.",
-    "image": "/images/cultural-festival.jpg"
+    "image": "https://i.ibb.co/fNPZLNL/12-cultural-festival.jpg"
   },
   {
-    "id": 16,
+    "id": 13,
     "title": "Craft Fair",
     "date": "2024-12-05",
     "location": "Nashville, TN",
     "price": "$10",
     "description": "Discover unique crafts and handmade items.",
-    "image": "/images/craft-fair.jpg"
+    "image": "https://i.ibb.co/Hh03xTp/13-craft-fair.jpg"
   },
   {
-    "id": 17,
-    "title": "Charity Gala",
-    "date": "2024-06-15",
-    "location": "Dallas, TX",
-    "price": "$200",
-    "description": "Support a good cause at a glamorous charity gala.",
-    "image": "/images/charity-gala.jpg"
-  },
-  {
-    "id": 18,
+    "id": 14,
     "title": "Cooking Class",
     "date": "2024-07-22",
     "location": "San Diego, CA",
     "price": "$60",
     "description": "Learn to cook delicious dishes from expert chefs.",
-    "image": "/images/cooking-class.jpg"
+    "image": "https://i.ibb.co/GvJ00V9/14-cooking-class.jpg"
   },
   {
-    "id": 19,
-    "title": "Sports Game",
-    "date": "2024-08-05",
-    "location": "Phoenix, AZ",
-    "price": "$50",
-    "description": "Cheer for your favorite team at an exciting game.",
-    "image": "/images/sports-game.jpg"
-  },
-  {
-    "id": 20,
+    "id": 15,
     "title": "Technology Expo",
     "date": "2024-09-18",
     "location": "Silicon Valley, CA",
     "price": "$80",
     "description": "Explore the latest tech innovations and gadgets.",
-    "image": "/images/technology-expo.jpg"
+    "image": "https://i.ibb.co/GWqFJxM/15-technology-expo.jpg"
   }
 ]
