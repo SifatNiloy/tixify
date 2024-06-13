@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import {
   getAuth,
@@ -7,7 +8,7 @@ import {
   signOut,
   updateProfile,
   GoogleAuthProvider,
-  onAuthStateChanged, // Import onAuthStateChanged from firebase/auth
+  onAuthStateChanged,
 } from 'firebase/auth';
 import React, { createContext, useEffect, useState, useContext } from 'react';
 import { app } from '../firebase/firebase.config';
@@ -19,7 +20,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [token, setToken] = useState(null); // State to hold the token
+  const [token, setToken] = useState(null);
   const googleProvider = new GoogleAuthProvider();
 
   const createUser = (email, password) => {
@@ -39,7 +40,12 @@ const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     setLoading(true);
-    return signOut(auth);
+    return signOut(auth).then(() => {
+      setUser(null);
+      setToken(null);
+      localStorage.removeItem('access-token');
+      setLoading(false);
+    });
   };
 
   const updateUserProfile = (name, photo) => {
@@ -50,33 +56,33 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        axios
-          .post('http://localhost:5000/jwt', {
+        setUser(currentUser);
+        try {
+          const response = await axios.post('http://localhost:5000/jwt', {
             email: currentUser.email,
-          })
-          .then((data) => {
-            setToken(data.data); // Set the token received from backend
-            localStorage.setItem('access-token', data.data);
-            setLoading(false);
-          })
-          .catch(function (error) {
-            console.log(error);
           });
+          const tokenData = response.data;
+          setToken(tokenData);
+          localStorage.setItem('access-token', tokenData);
+        } catch (error) {
+          console.error('Error fetching token:', error);
+        }
       } else {
+        setUser(null);
         setToken(null);
         localStorage.removeItem('access-token');
       }
+      setLoading(false);
     });
-    return () => unsubscribe(); // Return the unsubscribe function
+    return () => unsubscribe();
   }, []);
 
   const authInfo = {
     user,
     loading,
-    token, // Include token in authInfo
+    token,
     createUser,
     signIn,
     logOut,

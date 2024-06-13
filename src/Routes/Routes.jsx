@@ -2,8 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../components/Layout/Main";
 import Notfound from "../pages/Notfound";
 import Home from "../pages/Home";
-import PrivateRoutes from "./PrivateRoutes";
-import AdminRoutes from "./AdminRoutes";
 import EventDetailsPage from "../pages/EventDetails";
 import BookingPage from "../pages/BookingPage";
 import PaymentPage from "../pages/PaymentPage";
@@ -17,8 +15,6 @@ import MyTickets from "../components/Dashboard/MyTickets";
 import PaymentHistory from "../components/Dashboard/PaymentHistory";
 
 
-
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +26,7 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/events/:eventId", // Dynamic route for event details
+        path: "/events/:eventId", 
         element: <EventDetailsPage />,
       },
       {
@@ -38,7 +34,7 @@ export const router = createBrowserRouter([
         element: <BookingPage/>,
       },
       {
-        path: '/booking/:eventId', // Dynamic route for booking
+        path: '/booking/:eventId',
         element: <BookingPage />,
       },
       {

@@ -1,4 +1,4 @@
-// src/components/Layout/Main.jsx
+
 import React from 'react';
 import { BrowserRouter as Router, Outlet } from 'react-router-dom';
 import Navbar from './Navbar';

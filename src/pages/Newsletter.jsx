@@ -9,7 +9,7 @@ const Newsletter = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      // Simulate an API call
+      // Simulating an API call
       await new Promise((resolve) => setTimeout(resolve, 2000));
       setMessage('Thank you for subscribing!');
       setEmail('');

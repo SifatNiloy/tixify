@@ -55,7 +55,7 @@ const Register = () => {
         timer: 1500,
       });
 
-      // Redirect to login page
+      // Redirecting to login page
       navigate('/login');
     } catch (err) {
       setError("Registration failed. Please try again.");
@@ -65,7 +65,7 @@ const Register = () => {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      navigate('/dashboard'); // Redirect to dashboard after successful sign-in
+      navigate('/dashboard'); // Redirecting to dashboard after successful sign-in
     } catch (err) {
       setError("Google Sign-In failed. Please try again.");
     }

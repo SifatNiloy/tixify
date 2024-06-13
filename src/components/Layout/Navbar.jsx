@@ -25,12 +25,7 @@ const Navbar = () => {
         <div className="flex items-center">
           {user ? (
             <>
-              <Link
-                to="/dashboard"
-                className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
-              >
-                Dashboard
-              </Link>
+              
               <Link
                 to="/"
                 className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
@@ -48,6 +43,12 @@ const Navbar = () => {
                 className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
               >
                 Payment
+              </Link>
+              <Link
+                to="/dashboard"
+                className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
+              >
+                Dashboard
               </Link>
             </>
           ) : (

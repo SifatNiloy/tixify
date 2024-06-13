@@ -1,7 +1,7 @@
 // EventDetails.jsx
 
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt } from 'react-icons/fa';
 import { AuthContext } from '../Providers/AuthProvider';
@@ -11,6 +11,7 @@ const EventDetails = () => {
   const { user } = useContext(AuthContext);
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Use navigate for redirect
 
   useEffect(() => {
     axios.get(`http://localhost:5000/events/${eventId}`)
@@ -31,6 +32,14 @@ const EventDetails = () => {
   if (!event) {
     return <p>Event not found.</p>;
   }
+
+  const handleBookEvent = () => {
+    if (user) {
+      navigate(`/booking/${eventId}`);
+    } else {
+      navigate('/login', { state: { from: `/booking/${eventId}` } });
+    }
+  };
 
   return (
     <div className="container mx-auto px-6 py-12">
@@ -56,21 +65,12 @@ const EventDetails = () => {
         <p className="text-gray-700 mb-4">{event.description}</p>
 
         {/* Book Event Button */}
-        {user ? (
-          <Link
-            to={`/booking/${eventId}`} // Ensure this path matches the route in Routes.jsx
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300"
-          >
-            Book Event
-          </Link>
-        ) : (
-          <Link
-            to="/login"
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300"
-          >
-            Login to Book
-          </Link>
-        )}
+        <button
+          onClick={handleBookEvent}
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300"
+        >
+          {user ? 'Book Event' : 'Login to Book'}
+        </button>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+
 import { useContext, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from "react-simple-captcha";
@@ -17,7 +18,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
+  let from = location.state?.from || "/";
 
   useEffect(() => {
     if (!captchaRef.current || !captchaRef.current.loaded) {
@@ -110,7 +111,7 @@ const Login = () => {
             </div>
             <p className="text-sm text-center mb-4">New here? <Link className="text-blue-500 hover:underline" to="/register">Create an account</Link></p>
             <div className="divider my-4">OR</div>
-            <SocialLogin />
+            <SocialLogin from={from} />
           </form>
         </div>
       </div>

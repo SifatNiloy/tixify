@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { FaGoogle } from "react-icons/fa6";
+import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../src/Providers/AuthProvider";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const SocialLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
@@ -11,30 +11,43 @@ const SocialLogin = () => {
   const from = location.state?.from?.pathname || "/";
   console.log("Redirecting from:", from);
 
-  const handleGoogleSignIn = () => {
-    googleSignIn().then((result) => {
+  const { updateUserProfile } = useContext(AuthContext);
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await googleSignIn();
       console.log("Social login successful:", result);
       const loggedInUser = result.user;
 
-      // Save user data
+      // Update user profile 
+      await updateUserProfile(loggedInUser.displayName, loggedInUser.photoURL);
+
+      // Save user data to backend
       const saveUser = {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
         photo: loggedInUser.photoURL,
       };
 
-      fetch(`http://localhost:5000`, {
+      const response = await fetch("http://localhost:5000/saveUser", {
         method: "POST",
         headers: {
-          "content-type": "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(saveUser),
-      })
-        .then((res) => res.json())
-        .then(() => {
-          navigate(from, { replace: true });
-        });
-    });
+      });
+
+      if (response.ok) {
+        console.log("User data saved successfully");
+        navigate(from, { replace: true }); 
+      } else {
+        console.error("Failed to save user data:", response.statusText);
+        
+      }
+    } catch (error) {
+      console.error("Error during social login:", error);
+      
+    }
   };
 
   return (
