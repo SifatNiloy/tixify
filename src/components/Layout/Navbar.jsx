@@ -2,17 +2,15 @@ import React, { useContext, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
-
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const navigate= useNavigate();
+  const navigate = useNavigate();
   const handleLogout = () => {
     logOut();
     console.log("User logged out");
     navigate("/");
   };
-  
 
   const toggleDropdown = () => {
     setDropdownOpen((prevState) => !prevState);
@@ -22,39 +20,45 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 px-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold">
-          Ticket Booking App
+          Tixify
         </Link>
         <div className="flex items-center">
-          {/* <Link
-            to="/dashboard"
-            className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
-          >
-            Dashboard
-          </Link> */}
-          <Link
-            to="/"
-            className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
-          >
-            Home
-          </Link>
-          {/* <Link
-            to="/event"
-            className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
-          >
-            Event Details
-          </Link> */}
-          {/* <Link
-            to="/booking"
-            className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
-          >
-            Book Tickets
-          </Link> */}
-          {/* <Link
-            to="/payment"
-            className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
-          >
-            Payment
-          </Link> */}
+          {user ? (
+            <>
+              <Link
+                to="/dashboard"
+                className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="/"
+                className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
+              >
+                Home
+              </Link>
+              <Link
+                to="/events"
+                className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
+              >
+                Event Details
+              </Link>
+              <Link
+                to="/booking"
+                className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
+              >
+                Book Tickets
+              </Link>
+              <Link
+                to="/payment"
+                className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
+              >
+                Payment
+              </Link>
+            </>
+          ) : (
+            <></>
+          )}
 
           {user ? (
             <div className="relative ml-4">

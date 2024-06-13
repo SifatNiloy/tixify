@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt } from 'react-icons/fa';
 import { useAuth } from '../../Providers/AuthProvider'; // Import useAuth hook to access user and token
 import Swal from 'sweetalert2';
 
 const BookingForm = () => {
   const { eventId } = useParams();
+  const navigate = useNavigate(); // For navigation
   const { user, token } = useAuth(); // Assuming useAuth hook provides user and token
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    name: user ? user.displayName : '',
+    email: user ? user.email : '',
     tickets: 1,
     termsAccepted: false,
   });
   const [formError, setFormError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [confirmDisabled, setConfirmDisabled] = useState(true);
-  console.log(user)
+
   useEffect(() => {
     axios.get(`http://localhost:5000/events/${eventId}`)
       .then(response => {
@@ -53,37 +54,62 @@ const BookingForm = () => {
 
     setIsSubmitting(true);
 
-    try {
-      const response = await axios.post('http://localhost:5000/bookings', {
-        eventId,
-        eventName: event.title,
-        eventDate: event.date,
-        eventImage: event.image,
-        eventLocation: event.location,
-        eventPrice: event.price,
-        displayName: formData.name,
-        email: formData.email,
-        tickets: parseInt(formData.tickets),
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`, // Send the JWT token in the Authorization header
-        },
+    if (event.price && event.price.toLowerCase() !== 'free') {
+      // If the event is not free, prompt for payment
+      Swal.fire({
+        title: 'Paid Event',
+        text: 'It is a paid event. To confirm the booking, you have to pay first. Please proceed to the payment page.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Go to Payment Page',
+        cancelButtonText: 'Cancel',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Redirect to the payment page
+          navigate(`/payment?eventId=${eventId}&amount=${event.price}`);
+        } else {
+          setIsSubmitting(false);
+        }
       });
-      console.log('Booking successful:', response.data);
-      
-      if (response.data.acknowledged === true) {
+    } else {
+      // If the event is free, proceed with booking
+      try {
+        const response = await axios.post('http://localhost:5000/bookings', {
+          eventId,
+          eventName: event.title,
+          eventDate: event.date,
+          eventImage: event.image,
+          eventLocation: event.location,
+          eventPrice: event.price,
+          displayName: formData.name,
+          email: formData.email,
+          tickets: parseInt(formData.tickets),
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Send the JWT token in the Authorization header
+          },
+        });
+        console.log('Booking successful:', response.data);
+
+        if (response.data.acknowledged === true) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Your booking has been successful!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
+        }
+      } catch (error) {
+        console.error('Error booking event:', error);
         Swal.fire({
-          title: 'Success!',
-          text: 'Your booking has been successful!',
-          icon: 'success',
+          title: 'Error!',
+          text: 'There was an issue with your booking. Please try again later.',
+          icon: 'error',
           confirmButtonText: 'OK',
         });
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch (error) {
-      console.error('Error booking event:', error);
-      // Optionally: Handle error actions (e.g., show error message)
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -114,7 +140,7 @@ const BookingForm = () => {
         </div>
         <div className="text-gray-600 mb-4">
           <FaTicketAlt className="inline-block mr-1" />
-          {event.price ? `$${event.price}` : 'Free'}
+          {event.price ? (event.price.toLowerCase() === 'free' ? 'Free' : `$${event.price}`) : 'Free'}
         </div>
         <p className="text-gray-700 mb-4">{event.description}</p>
 
@@ -128,7 +154,7 @@ const BookingForm = () => {
               type="text"
               id="name"
               name="name"
-              value={user? user.displayName: formData.email}
+              value={user ? user.displayName : formData.name}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-600"
@@ -142,7 +168,7 @@ const BookingForm = () => {
               type="email"
               id="email"
               name="email"
-              value={user? user.email: formData.email}
+              value={user ? user.email : formData.email}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-600"

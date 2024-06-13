@@ -50,6 +50,6 @@ To run this project locally, follow these steps:
 ## Contact
 
 For any issues or questions regarding the project, feel free to contact:
-- **Sifat Niloy**
+
 - **sifatniloy26@gmail.com**
 - **[LinkedIn Profile](https://www.linkedin.com/in/sifat-niloy/)**

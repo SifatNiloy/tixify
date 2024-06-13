@@ -10,6 +10,7 @@ import PaymentPage from "../pages/PaymentPage";
 import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
 import Events from "../pages/Events";
+import BookedEvents from "../components/Dashboard/BookedEvents";
 
 
 
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: "/payment",
         element: <PaymentPage/>,
+      },
+      {
+        path: "/bookedevents",
+        element: <BookedEvents/>,
       },
       {
         path:"/login", 
