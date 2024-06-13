@@ -44,12 +44,6 @@ const Navbar = () => {
                 Event Details
               </Link>
               <Link
-                to="/booking"
-                className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
-              >
-                Book Tickets
-              </Link>
-              <Link
                 to="/payment"
                 className="mx-4 text-lg font-medium hover:text-gray-200 transition duration-300"
               >

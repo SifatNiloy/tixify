@@ -11,6 +11,11 @@ import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
 import Events from "../pages/Events";
 import BookedEvents from "../components/Dashboard/BookedEvents";
+import Dashboard from "../components/Layout/Dashboard";
+import AllBookings from "../components/Dashboard/AllBookings";
+import MyTickets from "../components/Dashboard/MyTickets";
+import PaymentHistory from "../components/Dashboard/PaymentHistory";
+
 
 
 
@@ -56,29 +61,32 @@ export const router = createBrowserRouter([
         path:"/register", 
         element: <Register />,
       },
-
-      
       {
-        path: "/private",
-        element: (
-          <PrivateRoutes>
-
-          </PrivateRoutes>
-        ),
+        path:"/dashboard", 
+        element: <Dashboard />,
+      },
+      {
+        path: "reservations",
+        element: <AllBookings />,
+      },
+      {
+        path: "mytickets",
+        element: <MyTickets />,
+      },
+      {
+        path: "paymenthistory",
+        element: <PaymentHistory/>,
       },
     ],
   },
   {
     path: "dashboard",
-    element: (
-      <PrivateRoutes>
-        {/* <Events></Events> */}
-      </PrivateRoutes>
-    ),
+    element: <Dashboard />,
     children: [
+      
       {
-        path: "userhome",
-        
+        path: "reservations",
+        element: <AllBookings />,
       },
       
     ],
