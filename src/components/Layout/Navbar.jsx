@@ -76,7 +76,7 @@ const Navbar = () => {
                 <ul className="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg">
                   <li>
                     <Link
-                      to="/userProfile"
+                      to="/userprofile"
                       className="block px-4 py-2 text-lg text-gray-800 hover:bg-indigo-500 hover:text-white
                       font-bold"
                     >

@@ -19,7 +19,7 @@ const SocialLogin = () => {
       console.log("Social login successful:", result);
       const loggedInUser = result.user;
 
-      // Update user profile 
+      // Update user profile
       await updateUserProfile(loggedInUser.displayName, loggedInUser.photoURL);
 
       // Save user data to backend
@@ -29,24 +29,25 @@ const SocialLogin = () => {
         photo: loggedInUser.photoURL,
       };
 
-      const response = await fetch("http://localhost:5000/saveUser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(saveUser),
-      });
+      const response = await fetch(
+        "https://tixify-api.sifatniloy.top/saveUser",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        }
+      );
 
       if (response.ok) {
         console.log("User data saved successfully");
-        navigate(from, { replace: true }); 
+        navigate(from, { replace: true });
       } else {
         console.error("Failed to save user data:", response.statusText);
-        
       }
     } catch (error) {
       console.error("Error during social login:", error);
-      
     }
   };
 

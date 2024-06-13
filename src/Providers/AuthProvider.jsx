@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         setUser(currentUser);
         try {
-          const response = await axios.post('http://localhost:5000/jwt', {
+          const response = await axios.post('https://tixify-api.sifatniloy.top/jwt', {
             email: currentUser.email,
           });
           const tokenData = response.data;

@@ -13,6 +13,7 @@ import Dashboard from "../components/Layout/Dashboard";
 import AllBookings from "../components/Dashboard/AllBookings";
 import MyTickets from "../components/Dashboard/MyTickets";
 import PaymentHistory from "../components/Dashboard/PaymentHistory";
+import UserProfile from "../pages/UserProfile";
 
 
 export const router = createBrowserRouter([
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
       {
         path: "paymenthistory",
         element: <PaymentHistory/>,
+      },
+      {
+        path: "paymenthistory",
+        element: <UserProfile/>,
       },
     ],
   },
