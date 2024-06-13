@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt } from 'react-icons/fa';
-import { useAuth } from '../../Providers/AuthProvider'; // Import useAuth hook to access user and token
+import { useAuth } from '../../Providers/AuthProvider'; // Importing useAuth hook to access user and token
 import Swal from 'sweetalert2';
 
 const BookingForm = () => {
   const { eventId } = useParams();
-  const navigate = useNavigate(); // For navigation
-  const { user, token } = useAuth(); // Assuming useAuth hook provides user and token
+  const navigate = useNavigate(); 
+  const { user, token } = useAuth(); 
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
@@ -65,7 +65,7 @@ const BookingForm = () => {
         cancelButtonText: 'Cancel',
       }).then((result) => {
         if (result.isConfirmed) {
-          // Redirect to the payment page
+          // Redirecting to the payment page
           navigate(`/payment?eventId=${eventId}&amount=${event.price}`);
         } else {
           setIsSubmitting(false);
@@ -86,7 +86,7 @@ const BookingForm = () => {
           tickets: parseInt(formData.tickets),
         }, {
           headers: {
-            Authorization: `Bearer ${token}`, // Send the JWT token in the Authorization header
+            Authorization: `Bearer ${token}`, // Sending the JWT token in the Authorization header
           },
         });
         console.log('Booking successful:', response.data);
