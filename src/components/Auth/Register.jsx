@@ -110,9 +110,9 @@ const Register = () => {
               <Input
                 type="text"
                 name="photoURL"
-                placeholder="Enter your photo URL"
+                placeholder="Enter your photo URL (optional)"
                 className="input input-bordered w-full"
-                required
+                // required
               />
             </div>
             <div className="mb-4">

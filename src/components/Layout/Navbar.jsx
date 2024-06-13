@@ -64,7 +64,7 @@ const Navbar = () => {
               >
                 <div className="relative ml-4 flex items-center">
                   <img
-                    className="rounded-full md:w-2/3 lg:w-1/4 pr-2"
+                    className="rounded-full w-1/5 pr-2"
                     src={user.photoURL}
                     alt=""
                   />

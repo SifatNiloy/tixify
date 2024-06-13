@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt } from 'react-icons/fa';
 import { useAuth } from '../../Providers/AuthProvider'; // Import useAuth hook to access user and token
+import Swal from 'sweetalert2';
 
 const BookingForm = () => {
   const { eventId } = useParams();
@@ -18,7 +19,7 @@ const BookingForm = () => {
   const [formError, setFormError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [confirmDisabled, setConfirmDisabled] = useState(true);
-
+  console.log(user)
   useEffect(() => {
     axios.get(`http://localhost:5000/events/${eventId}`)
       .then(response => {
@@ -60,7 +61,7 @@ const BookingForm = () => {
         eventImage: event.image,
         eventLocation: event.location,
         eventPrice: event.price,
-        name: formData.name,
+        displayName: formData.name,
         email: formData.email,
         tickets: parseInt(formData.tickets),
       }, {
@@ -69,7 +70,15 @@ const BookingForm = () => {
         },
       });
       console.log('Booking successful:', response.data);
-      // Optionally: Handle success actions (e.g., redirect, show success message)
+      
+      if (response.data.acknowledged === true) {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your booking has been successful!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        });
+      }
     } catch (error) {
       console.error('Error booking event:', error);
       // Optionally: Handle error actions (e.g., show error message)
@@ -119,7 +128,7 @@ const BookingForm = () => {
               type="text"
               id="name"
               name="name"
-              value={formData.name}
+              value={user? user.displayName: formData.email}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-600"
@@ -133,7 +142,7 @@ const BookingForm = () => {
               type="email"
               id="email"
               name="email"
-              value={formData.email}
+              value={user? user.email: formData.email}
               onChange={handleChange}
               required
               className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-600"

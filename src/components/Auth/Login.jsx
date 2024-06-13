@@ -60,8 +60,8 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-500">
-        <div className="w-full md:w-1/2 lg:w-2/3 xl:w-1/3 p-6 rounded-lg bg-white shadow-xl">
+      <div className=" flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-500 py-24">
+        <div className="w-full md:w-1/2 lg:w-2/3 xl:w-1/3 p-6 rounded-lg bg-white shadow-xl ">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-6">Welcome Back!</h1>
           <p className="text-lg text-gray-700 text-center mb-6">Log in to access exclusive events and book your tickets easily.</p>
           <form onSubmit={handleLogin}>
@@ -108,7 +108,7 @@ const Login = () => {
                 Log In
               </Button>
             </div>
-            <p className="text-sm text-center mb-4">New here? <Link className="text-blue-500 hover:underline" to="/signup">Create an account</Link></p>
+            <p className="text-sm text-center mb-4">New here? <Link className="text-blue-500 hover:underline" to="/register">Create an account</Link></p>
             <div className="divider my-4">OR</div>
             <SocialLogin />
           </form>
