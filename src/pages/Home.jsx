@@ -6,6 +6,7 @@ import axios from 'axios'; // Using axios for HTTP requests
 import Events from './Events';
 import Testimonials from './Testimonials';
 import Blogs from './Blogs';
+import Newsletter from './Newsletter';
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -41,7 +42,7 @@ const Home = () => {
       <Events/>
       <Testimonials/>
       <Blogs />
-      
+      <Newsletter/>
     </div>
   );
 };
