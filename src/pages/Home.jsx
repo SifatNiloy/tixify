@@ -4,6 +4,8 @@ import { FaCalendarAlt, FaMapMarkerAlt, FaTicketAlt, FaInfoCircle } from 'react-
 import hero1 from '../assets/images/hero-1-cropped.jpg';
 import axios from 'axios'; // Using axios for HTTP requests
 import Events from './Events';
+import Testimonials from './Testimonials';
+import Blogs from './Blogs';
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -37,6 +39,8 @@ const Home = () => {
       </section>
 
       <Events/>
+      <Testimonials/>
+      <Blogs />
       
     </div>
   );
