@@ -9,6 +9,7 @@ import BookingPage from "../pages/BookingPage";
 import PaymentPage from "../pages/PaymentPage";
 import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
+import Events from "../pages/Events";
 
 
 
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: '/booking/:eventId', // Dynamic route for booking
         element: <BookingPage />,
+      },
+      {
+        path: "/events",
+        element: <Events/>,
       },
       {
         path: "/payment",
@@ -62,54 +67,15 @@ export const router = createBrowserRouter([
     path: "dashboard",
     element: (
       <PrivateRoutes>
-        {/* <Dashboard /> */}
+        {/* <Events></Events> */}
       </PrivateRoutes>
     ),
     children: [
       {
         path: "userhome",
-        // element: <UserHome />,
+        
       },
-      {
-        path: "adminhome",
-        element: (
-          <AdminRoutes>
-            {/* <AdminHome /> */}
-          </AdminRoutes>
-        ),
-      },
-      {
-        path: "myorders",
-        // element: <MyOrders />,
-      },
-      {
-        path: "reservation",
-        // element: <Reservation />,
-      },
-      {
-        path: "payment",
-        // element: <Payment />,
-      },
-      {
-        path: "allusers",
-        // element: <AllUsers />,
-      },
-      {
-        path: "addItem",
-        element: (
-          <AdminRoutes>
-            {/* <AddItem /> */}
-          </AdminRoutes>
-        ),
-      },
-      {
-        path: "manageproducts",
-        element: (
-          <AdminRoutes>
-            {/* <ManageProducts /> */}
-          </AdminRoutes>
-        ),
-      },
+      
     ],
   },
 ]);
