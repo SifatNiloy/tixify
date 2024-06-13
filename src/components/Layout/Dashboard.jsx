@@ -2,15 +2,14 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { FaRegCalendarAlt, FaWallet } from "react-icons/fa";
-import { HiShoppingCart } from "react-icons/hi";
-import { MdEventSeat } from "react-icons/md"; // Using MdEventSeat for ticket-related icon
-
-import useAuth from "../../hooks/useAuth"; // Assuming useAuth hook for authentication
+import { MdEventSeat } from "react-icons/md"; 
+import { FaTicket } from "react-icons/fa6";
+import useAuth from "../../hooks/useAuth"; 
 
 const Dashboard = () => {
-  const { user } = useAuth(); // Assuming useAuth provides user information
+  const { user } = useAuth(); 
 
-  const isAdmin = false; // Modify based on your authentication logic
+  const isAdmin = false; 
 
   return (
     <div className="flex h-screen bg-gray-100">
@@ -96,7 +95,7 @@ const Dashboard = () => {
                       activeClassName="bg-gray-700"
                       className="flex items-center px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md"
                     >
-                      <HiShoppingCart className="mr-2" />
+                      <FaTicket className="mr-2"/>
                       My Tickets
                     </NavLink>
                   </li>
